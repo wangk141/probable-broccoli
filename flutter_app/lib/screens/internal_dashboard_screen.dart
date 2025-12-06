@@ -47,7 +47,7 @@ class _InternalDashboardScreenState extends State<InternalDashboardScreen> {
           },
         ),
       )
-      ..loadRequest(Uri.parse("http://10.0.0.114:4200"));
+      ..loadRequest(Uri.parse("http://10.0.2.2:4200"));
   }
 
   @override
