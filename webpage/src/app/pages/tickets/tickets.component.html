@@ -1,0 +1,31 @@
+<div class="flex space-x-2 mb-4">
+  <button *ngFor="let f of FILTERS"
+          (click)="filter = f"
+          [class.active]="filter === f">
+    {{ f }}
+  </button>
+</div>
+
+<div *ngIf="filteredTickets.length === 0" class="text-gray-500">
+  No tickets to display.
+</div>
+
+<ul *ngIf="filteredTickets.length > 0" class="space-y-3">
+  <li *ngFor="let t of filteredTickets" class="p-4 border rounded">
+    <div class="flex justify-between items-center">
+      <div>
+        <div class="font-semibold">{{ t.subject }}</div>
+        <div class="text-sm text-gray-600">Created: {{ t.createdAt }}</div>
+      </div>
+      <div>
+        <span class="px-2 py-1 rounded text-sm"
+              [class.bg-green-100]="t.status === 'Closed'"
+              [class.text-green-800]="t.status === 'Closed'"
+              [class.bg-yellow-100]="t.status === 'In Progress'"
+              [class.text-yellow-800]="t.status === 'In Progress'"
+              [class.bg-red-100]="t.status === 'Open'"
+              [class.text-red-800]="t.status === 'Open'">{{ t.status }}</span>
+      </div>
+    </div>
+  </li>
+</ul>

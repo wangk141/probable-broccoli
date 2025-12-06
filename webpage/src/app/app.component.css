@@ -1,0 +1,19 @@
+/* Ensure proper layering and smooth transitions */
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Make sure sidebar is full height on mobile */
+app-sidebar.fixed {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* On desktop, sidebar is always visible */
+@media (min-width: 768px) {
+  app-sidebar {
+    display: block !important;
+  }
+}

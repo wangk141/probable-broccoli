@@ -1,0 +1,6 @@
+<div 
+  #logContainer
+  (scroll)="onScroll()"
+  class="h-full overflow-y-auto bg-gray-900 text-green-400 p-4 font-mono text-sm">
+  <div *ngFor="let log of logs">{{ log }}</div>
+</div>

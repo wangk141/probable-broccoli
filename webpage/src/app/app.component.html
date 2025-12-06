@@ -1,0 +1,23 @@
+<div class="flex h-screen relative">
+  <button *ngIf="!sidebarOpen"
+    class="fixed top-4 left-4 z-50 p-3 bg-gray-800 text-white rounded-lg shadow-lg md:hidden flex items-center justify-center"
+    (click)="toggleSidebar()" style="width: 48px; height: 48px;">
+    <span style="font-size: 24px; line-height: 1;">☰</span>
+  </button>
+
+  <div *ngIf="sidebarOpen" class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30" (click)="toggleSidebar()">
+  </div>
+
+  <app-sidebar class="w-64 z-40 transition-all duration-300 md:block" [ngClass]="{
+      'hidden': !sidebarOpen,
+      'block': sidebarOpen,
+      'fixed': true,
+      'md:relative': true
+    }" (linkClicked)="closeSidebar()">
+  </app-sidebar>
+
+  <main class="flex-1 overflow-auto p-6 bg-white pt-16 md:pt-6">
+    <h1 class="text-2xl font-bold mb-4">Hello, {{ title }}</h1>
+    <router-outlet></router-outlet>
+  </main>
+</div>
